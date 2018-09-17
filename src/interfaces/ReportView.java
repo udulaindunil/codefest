@@ -25,26 +25,26 @@ public class ReportView extends JFrame
     {
         this(fileName, null);
     }
-//    public ReportView(String fileName, HashMap para)
-//    {
-//        super("ABC Solutions Employee/Project Management System (Report Viewer)");
-//
-//       DataAccess dba = new DataAccess();
-//        Connection con = dba.getConnection();
-//
-//        try
-//        {
-//            JasperPrint print = JasperFillManager.fillReport(fileName, para, con);
-//            JRViewer viewer = new JRViewer(print);
-//            Container c = getContentPane();
-//            c.add(viewer);            
-//        } 
-//        catch (JRException jRException)
-//        {
-//            
-//        }
-//        setBounds(10, 10, 900, 700);
-//        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-//    }
-//    
+   public ReportView(String fileName, HashMap para)
+   {
+       super("ABC Solutions Employee/Project Management System (Report Viewer)");
+
+      DataAccess dba = new DataAccess();
+       Connection con = dba.getConnection();
+
+       try
+       {
+           JasperPrint print = JasperFillManager.fillReport(fileName, para, con);
+           JRViewer viewer = new JRViewer(print);
+           Container c = getContentPane();
+           c.add(viewer);            
+       } 
+       catch (JRException jRException)
+       {
+           
+       }
+       setBounds(10, 10, 900, 700);
+       setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+   }
+   
 }
