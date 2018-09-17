@@ -5,6 +5,8 @@
  */
 package interfaces;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Indunil Sensly
@@ -33,7 +35,12 @@ public class printReport extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        print_all.setText("print all");
+        print_all.setText("print id");
+        print_all.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                print_allActionPerformed(evt);
+            }
+        });
 
         print.setText("print");
         print.addActionListener(new java.awt.event.ActionListener() {
@@ -47,7 +54,7 @@ public class printReport extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(111, Short.MAX_VALUE)
+                .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(tag, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(86, 86, 86)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -74,6 +81,14 @@ public class printReport extends javax.swing.JFrame {
         ReportView r = new ReportView("D:\\codefest\\codefest\\src\\ireport\\loginUser.jasper");
         r.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_printActionPerformed
+
+    private void print_allActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_print_allActionPerformed
+        HashMap para = new HashMap();
+        if(tag.getText().length()!=0){
+            para.put("Id", tag.getText());
+            ReportView re = new ReportView("D:\\codefest\\codefest\\src\\ireport\\report1.jasper",para);
+            re.setVisible(true);// TODO add your handling code here:
+    }//GEN-LAST:event_print_allActionPerformed
 
     /**
      * @param args the command line arguments
