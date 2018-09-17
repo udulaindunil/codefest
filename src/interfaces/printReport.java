@@ -71,7 +71,8 @@ public class printReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
-        // TODO add your handling code here:
+        ReportView r = new ReportView("D:\\codefest\\codefest\\src\\ireport\\loginUser.jasper");
+        r.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_printActionPerformed
 
     /**
