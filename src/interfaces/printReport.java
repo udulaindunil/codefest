@@ -5,7 +5,18 @@
  */
 package interfaces;
 
+import java.sql.*;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import logic.dataAccess;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.view.*;
+import net.sf.jasperreports.engine.*;
 
 /**
  *
@@ -13,6 +24,7 @@ import java.util.HashMap;
  */
 public class printReport extends javax.swing.JFrame {
 
+        dataAccess CONEX= new dataAccess();
     /**
      * Creates new form ReportView
      */
@@ -53,24 +65,26 @@ public class printReport extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap(113, Short.MAX_VALUE)
                 .addComponent(tag, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(86, 86, 86)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(print)
-                    .addComponent(print_all))
-                .addGap(63, 63, 63))
+                .addGap(82, 82, 82)
+                .addComponent(print_all)
+                .addGap(67, 67, 67))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
+                .addComponent(print)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(print_all)
+                .addComponent(print)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(print)
-                    .addComponent(tag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tag, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(print_all))
                 .addGap(62, 62, 62))
         );
 
@@ -78,7 +92,18 @@ public class printReport extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void printActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printActionPerformed
-        ReportView r = new ReportView("D:\\codefest\\codefest\\src\\ireport\\loginUser.jasper");
+//        String REPORT = "D:\\\\codefest\\\\codefest\\\\src\\\\ireport\\\\user_report.jasper";
+//        JasperReport JASP_REP = null;
+//            try {
+//                JASP_REP = JasperCompileManager.compileReport(REPORT);
+//            } catch (JRException ex) {
+//                Logger.getLogger(printReport.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        JasperPrint JASP_PRINT;
+//            JASP_PRINT = JasperCompileManager.fillReport(JASP_REP,null,CONEX);
+//        JasperViewer.viewReport(JASP_PRINT);
+//       
+        ReportView r = new ReportView("D:\\codefest\\codefest\\src\\ireport\\user_report.jasper");
         r.setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_printActionPerformed
 
@@ -86,10 +111,10 @@ public class printReport extends javax.swing.JFrame {
         HashMap para = new HashMap();
         if(tag.getText().length()!=0){
             para.put("Id", tag.getText());
-            ReportView re = new ReportView("D:\\codefest\\codefest\\src\\ireport\\report1.jasper",para);
+            ReportView re = new ReportView("D:\\codefest\\codefest\\src\\ireport\\administrators.jasper",para);
             re.setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_print_allActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */

@@ -10,6 +10,7 @@ import com.mysql.jdbc.Connection;
 import java.awt.Container;
 import java.util.HashMap;
 import javax.swing.*;
+import logic.dataAccess;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -27,9 +28,9 @@ public class ReportView extends JFrame
     }
    public ReportView(String fileName, HashMap para)
    {
-       super("ABC Solutions Employee/Project Management System (Report Viewer)");
+       super("Ghost Hackers");
 
-      DataAccess dba = new DataAccess();
+      dataAccess dba = new dataAccess();
        Connection con = dba.getConnection();
 
        try
